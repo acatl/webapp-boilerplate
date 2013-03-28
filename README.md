@@ -18,13 +18,13 @@
 grunt watch
 ```
 
-### Grunt recompile brower components
+### Grunt recompile bower components
 
 ```bash
-brower concat:plugins
+bower concat:plugins
 ```
 
-### Update components (brower)
+### Update components (bower)
 remember to recompile components after updating
 
 ```bash

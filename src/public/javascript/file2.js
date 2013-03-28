@@ -1,1 +1,1 @@
-file2.js
+// file2.js
