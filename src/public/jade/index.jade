@@ -16,15 +16,13 @@ head
         meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 
         link(rel='stylesheet', href='css/normalize.css')
-        //- link(rel='stylesheet', href='css/font-awesome.css')
+        link(rel='stylesheet', href='css/font-awesome.css')
         link(rel='stylesheet', href='css/main.css')
 
         //- script(type="text/javascript", src="//use.typekit.net/moh3mgl.js")
         //- script(type="text/javascript")
         //-     try{Typekit.load();}catch(e){}
 
-        //- script(src='js/plugins/modernizr-2.6.2-respond-1.1.0.min.js')
-    
     body
         //if lt IE 7
             p.chromeframe
@@ -46,14 +44,14 @@ head
 
         .main-container
             .main.wrapper.clearfix
-                #content
+                #main
                 
         .footer-container
             footer.wrapper
                 #footer
                     include footer
 
+        include templates
+        
         script(src='js/plugins.js')
         script(src='js/main.js')
-
-        include templates

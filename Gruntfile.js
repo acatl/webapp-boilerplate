@@ -3,37 +3,65 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             options: {
-                separator: ';'
+                separator: ';\n\n',
+                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                        '<%= grunt.template.today("yyyy-mm-dd") %> */\n\n'
             },
             plugins: {
                 src: [
                     'components/jquery/jquery.min.js',
                     'components/underscore/underscore-min.js',
                     'components/backbone/backbone-min.js',
-                    'components/handlebars.js/dist/handlebars.js',
-                    'components/moment/min/moment.min.js'
+                    'components/handlebars.js/dist/handlebars.js'
                 ],
                 dest: 'public/js/plugins.js'
-            },
-            css: {
-                src: [
-                    'components/normalize-css/normalize.css'
-                ],
-                dest: 'public/css/normalize.css'
             }
         },
 
         copy: {
-          main: {
+          normalize: {
             files: [
                 {
-                    src: ['src/public/favicon.ico'], 
-                    dest: 'public/favicon.ico', 
-                    filter: 'isFile',
-                    flatten: true
-                } // includes files in path
+                    expand: true,
+                    cwd: 'components/normalize-css/',
+                    src: 'normalize.css', 
+                    dest: 'public/css/',
+                    filter: 'isFile'
+                } 
             ]
-          }
+          },  
+          fontawesomecss: {
+            files: [
+                {
+                    expand: true,
+                    cwd: 'components/font-awesome/css/',
+                    src: 'font-awesome.min.css', 
+                    dest: 'public/css/',
+                    filter: 'isFile'
+                } 
+            ]
+          },
+          fontawesomefonts: {
+            files: [
+                {
+                    expand: true,
+                    cwd: 'components/font-awesome/font/',
+                    src: '*', 
+                    dest: 'public/font/'
+                } 
+            ]
+          },
+          favicon: {
+            files: [
+                {
+                    expand: true,
+                    cwd: 'src/public/',
+                    src: 'favicon.ico', 
+                    dest: 'public/',
+                    filter: 'isFile'
+                } 
+            ]
+          },
         },
 
         coffee: {
@@ -79,7 +107,7 @@ module.exports = function(grunt) {
         watch: {
             htmls: {
                 files: [
-                    "src/public/jade/**/*.jade"
+                    "src/public/**/*.jade"
                 ],
                 tasks: ['jade']
             },
