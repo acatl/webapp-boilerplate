@@ -38,17 +38,13 @@ module.exports = function(grunt) {
                     src: 'font-awesome.min.css', 
                     dest: 'public/css/',
                     filter: 'isFile'
-                } 
-            ]
-          },
-          fontawesomefonts: {
-            files: [
+                } ,
                 {
                     expand: true,
                     cwd: 'components/font-awesome/font/',
                     src: '*', 
                     dest: 'public/font/'
-                } 
+                }
             ]
           },
           favicon: {
